@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta author="Siddharth Patel">
+    	<link rel="icon" type="image/ico" href="./images/zoomlogo.png">
+
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<link href="css/bootstrap.css" rel="stylesheet">
+      	<link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+      	<link rel="stylesheet" type="text/css" href="./css/style.css">
+        <script type="text/javascript" src="./js/jquery.js"></script>
+        <script type="text/javascript" src="./js/tracker.js"></script>
+        <script src="http://maps.google.com/maps/api/js?libraries=places&region=uk&language=en&sensor=true"></script>
+        <title>Zoom Tracker</title>
+    </head>
+    <body>
+    	<div class="container" id="main_container">
+			<header>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12 col-xs-12">
+							<div class="nav-bar">
+								<div class="navbar-header">
+									<span class="navbar-header-text">
+										<img src="./images/zoomlogo.png" class="img-logo">
+										Tracker
+									</span>
+									<span style='color:lightblue'> - live tracking made easy!</span>
+								</div>
+								<div class="navbar-body">
+									<ul id="nav_bar_items">
+										<li>API Hits : <span id="api_hits"></span></li>
+										<li>Total Parcels : <span id="total_parcels"></span></li>
+									</ul>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</header>
+			<div class="body-container">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-4 col-xs-4 col-sm-4" id="courier_list_section">
+							<div class="search-parcel">
+								<input type="text" class="form-control" id="search_parcel" placeholder="Search by name, price, weight, phone..." onkeyup="tracker.search()">
+							</div>
+							<div class="courier-list">
+								<div id='courier_list'>
+								</div>
+								<hr class='border-line'></hr>
+								<div class="sort-box">
+									<span> Sort By : </span>
+									<input type='radio' class='sort_courier_list' value="value" name="sort_courier_list" onchange="tracker.sort(1)"> 
+									<i class="fa fa-inr"> Price</i>
+									<input type='radio' class='sort_courier_list' value="weight" name="sort_courier_list" onchange="tracker.sort(2)"> 
+									<i class="fa fa-cog"> Weight</i>
+								</div>
+							</div>
+
+						</div>
+						<div class="col-md-8 col-xs-8 col-sm-8" id="courier_details_section">
+							<div class='border-details-outline'>
+								<div class="col-md-6 col-sm-6 col-xs-6">
+									<div class='prod_details'>
+										<span id="courier_item_image"></span>
+										<span id="courier_item_date"></span>
+									</div>
+								</div>
+								<div class="col-md-6 col-sm-6 col-xs-6">
+									<div class="prod_details">
+										<h4 id="courier_item_name"></h4>
+
+										<span class="prod_item_det" id="courier_item_type"></span>
+										<span class="prod_item_det pull-right" id="courier_item_price"></span>
+										<br><br>
+										<span class="prod_item_det" id="courier_item_weight"></span>
+										<span class="prod_item_det pull-right" id="courier_item_qty"></span>
+										<br><br>
+										<span class="prod_item_det" id="courier_item_phone"></span>
+										<span class="prod_item_det pull-right" id="courier_item_color"></span>
+									</div>
+								</div>
+
+								<div class="col-md-12 col-sm-12 col-xs-12" id="current_location">
+									<div id="map_canvas" style="height: 250px;width: 650px;margin: 0.6em;"></div>
+								</div>
+								<hr class='border-line'></hr>
+								<div class="col-md-12 col-sm-12 col-xs-12" id="social-btns">
+									
+									<button class="btnz like-btn">
+										<i class='fa fa-thumbs-up'></i> Like
+									</button>
+									<button class="btnz share-btn">
+										<i class="fa fa-share-alt"></i> share
+									</button>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    	<script type="text/javascript">
+    		tracker.init();
+    	</script>
+    </body>
+</html>
